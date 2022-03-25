@@ -1,0 +1,3 @@
+[] Set up Backend Structures
+[] Set up PRISMA schema
+[] Download necessary dependencies
