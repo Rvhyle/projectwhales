@@ -1,0 +1,1 @@
+{"version":3,"file":"checkSession.js","sourceRoot":"","sources":["../../../../src/api/v1/middlewares/checkSession.ts"],"names":[],"mappings":";;;AAEO,MAAM,YAAY,GAAG,CAAC,GAAY,EAAE,GAAa,EAAE,IAAkB,EAAE,EAAE;IAC9E,yBAAyB;IACzB,IAAI,aAAa,GAAG,GAAG,CAAC,OAAO,CAAC;IAEhC,OAAO,CAAC,GAAG,CAAC,GAAG,CAAC,OAAO,CAAC,CAAC;IAEzB,IAAI,EAAE,CAAC;AACT,CAAC,CAAC;AAPW,QAAA,YAAY,gBAOvB"}

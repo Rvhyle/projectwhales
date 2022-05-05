@@ -9,12 +9,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-function userValidation(email, username) {
-    return __awaiter(this, void 0, void 0, function* () {
-        //Check if user is already in database
-        // const user = await prisma.user.findOne({ email: email });
-        console.log('user');
+const index_1 = require("../../../../index");
+const bcrypt = require('bcrypt');
+const createUser = (email, password, username, name) => __awaiter(void 0, void 0, void 0, function* () {
+    //Create hashed Password
+    const saltRounds = 10;
+    const hashedPass = bcrypt.hashSync(password, saltRounds);
+    yield index_1.prisma.user.create({
+        data: {
+            email: email,
+            password: hashedPass,
+            username: username,
+            name: name,
+        },
     });
-}
-exports.default = userValidation;
-//# sourceMappingURL=userValidation.js.map
+});
+exports.default = createUser;
+//# sourceMappingURL=createUser.js.map

@@ -1,11 +1,11 @@
 import { prisma } from '../../../../index';
 const bcrypt = require('bcrypt');
 
-async function createUser(email: string, password: string, username: string, name?: string) {
+const createUser = async (email: string, password: string, username: string, name: string) => {
   //Create hashed Password
   const saltRounds = 10;
   const hashedPass = bcrypt.hashSync(password, saltRounds);
-  const newUser = await prisma.user.create({
+  await prisma.user.create({
     data: {
       email: email,
       password: hashedPass,
@@ -13,6 +13,6 @@ async function createUser(email: string, password: string, username: string, nam
       name: name,
     },
   });
-}
+};
 
 export default createUser;

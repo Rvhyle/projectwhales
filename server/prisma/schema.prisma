@@ -7,47 +7,47 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://ryleurcia:qAZpLmTang0@localhost:5432/projectwhales?schema=public"
 }
 
 // Models
 model Post {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(uuid())
   createdAt DateTime @default(now())
   content   String
   author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
+  authorId  String
 }
 
 model Comment {
-  id Int @id @default(autoincrement())
+  id        String      @id @default(uuid())
   createdAt DateTime @default(now())
-  content String
-  author User @relation(fields: [authorId], references: [id])
-  authorId  Int
+  content   String
+  author    User @relation(fields: [authorId], references: [id])
+  authorId  String
 }
 
 model Follower {
-  id Int @id @default(autoincrement())
+  id       String      @id @default(uuid())
   follower User @relation(fields: [followerId], references: [id])
-  followerId Int
+  followerId String
 }
 
 model Following {
-  id Int @id @default(autoincrement())
+  id        String      @id @default(uuid())
   following User @relation(fields: [followingId], references: [id])
-  followingId Int
+  followingId String
 }
 
 model Profile {
-  id     Int     @id @default(autoincrement())
+  id     String     @id @default(uuid())
   bio    String?
   user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
+  userId String     @unique
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
+  id      String      @id @default(uuid())
   email   String   @unique
   username String @unique
   password String
