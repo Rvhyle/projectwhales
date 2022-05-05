@@ -24,6 +24,7 @@ router.post('/register', body('email').isEmail(), body('password').isLength({ mi
   }
 
   try {
+    //User must log in to create session after account creation
     await createUser(email, password, username, name);
   } catch (error) {
     console.error(error);
